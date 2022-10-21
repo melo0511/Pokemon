@@ -2,10 +2,21 @@
     margin: 0;
 }
 
+*::-webkit-scrollbar{
+    width: 10px;
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+width: 100%;
+border-radius: 20px;
+background: gray;
+}
+
 body{
     width: 100vw;
     height: 100vh;
-    background: red;
+    background: transparent;
     overflow-x: hidden;
 }
 
@@ -28,7 +39,7 @@ main{
 }
 
 .card{
-    width: 25%;
+    width: 20%;
     height: 12rem;
     display: flex;
     justify-content: space-around;
@@ -36,10 +47,144 @@ main{
     flex-direction: column;
     background: blue;
     margin: 1.2rem;
+    cursor: pointer;
+
+}
+
+.despliegue{
+    width: 20%;
+    height: 12rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: red;
+}
+
+.card:hover{
+    -webkit-transform:scale(1.2);transform:scale(1.2);
+    overflow: hidden;
+    transition: 1000ms all ease;
+}
+
+.containerImg{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 100%;
 }
 
 .img{
-    width: 20%;
-    height: 20%;
+    width: 100%;
+    height: 100%;
 }
 
+.img:hover{
+    -webkit-transform:scale(1.2);transform:scale(1.2);
+    overflow: hidden;
+    transition: 1000ms all ease;
+}
+
+/* animacion img */
+
+.CircleImg {
+    display: inline-block;
+    font-size: 45px;
+    line-height: 90px;
+    cursor: pointer;
+    margin: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    color: #fff;
+}
+
+.CircleImg:after {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    content:'';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.CircleImg:before {
+    font-size: 48px;
+    line-height: 90px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+
+.CircleImg.effect {
+    width: 92px;
+    height: 92px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+}
+
+.CircleImg.effect:before {
+    line-height: 92px;
+}
+
+.CircleImg.effect:after {
+    top: -4px;
+    left: -4px;
+    padding: 0;
+    z-index: 10;
+    border: 4px dashed #fff;
+}
+
+.CircleImg.effect:hover {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    color: #fff;
+}
+/* Effect 4b */
+
+ .CircleImg.effect.sub-b:hover {
+    -webkit-transition: box-shadow 0.2s;
+    -moz-transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+}
+.CircleImg.effect.sub-b:hover:after {
+    -webkit-animation: spinAround 9s linear infinite;
+    -moz-animation: spinAround 9s linear infinite;
+    animation: spinAround 9s linear infinite;
+}
+@-webkit-keyframes spinAround {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spinAround {
+    from {
+        -moz-transform: rotate(0deg)
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fin animacion img */
