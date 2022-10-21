@@ -51,16 +51,6 @@ main{
 
 }
 
-.despliegue{
-    width: 20%;
-    height: 12rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    background: red;
-}
-
 .card:hover{
     -webkit-transform:scale(1.2);transform:scale(1.2);
     overflow: hidden;
@@ -152,12 +142,12 @@ main{
 }
 /* Effect 4b */
 
- .CircleImg.effect.sub-b:hover {
+ .CircleImg.effect.AnimationSpin:hover {
     -webkit-transition: box-shadow 0.2s;
     -moz-transition: box-shadow 0.2s;
     transition: box-shadow 0.2s;
 }
-.CircleImg.effect.sub-b:hover:after {
+.CircleImg.effect.AnimationSpin:hover:after {
     -webkit-animation: spinAround 9s linear infinite;
     -moz-animation: spinAround 9s linear infinite;
     animation: spinAround 9s linear infinite;
