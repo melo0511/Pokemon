@@ -38,24 +38,49 @@ main{
     background: yellow;
 }
 
-.card{
+.principal{
     width: 20%;
-    height: 12rem;
+    height: 20rem;
+    background: greenyellow;
+    margin: 1.2rem;
+}
+
+.card{
+    width: 100%;
+    height: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background: blue;
-    margin: 1.2rem;
     cursor: pointer;
-
+    
 }
 
-.card:hover{
+.principal:hover{
     -webkit-transform:scale(1.2);transform:scale(1.2);
     overflow: hidden;
     transition: 1000ms all ease;
 }
+
+.principal:hover .img{
+    -webkit-transform:scale(1.2);transform:scale(1.2);
+    overflow: hidden;
+    transition: 1000ms all ease;
+}
+
+.down{
+    width: 100%;
+    height: 50%;
+    background: red;
+    position: absolute;
+    display: none;
+}
+
+.principal:hover .down{
+    display: block;
+}
+
 
 .containerImg{
     width: 50%;
@@ -70,12 +95,6 @@ main{
 .img{
     width: 100%;
     height: 100%;
-}
-
-.img:hover{
-    -webkit-transform:scale(1.2);transform:scale(1.2);
-    overflow: hidden;
-    transition: 1000ms all ease;
 }
 
 /* animacion img */
@@ -107,13 +126,10 @@ main{
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
+
 .CircleImg:before {
     font-size: 48px;
     line-height: 90px;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
     display: block;
     -webkit-font-smoothing: antialiased;
 }
@@ -140,40 +156,19 @@ main{
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     color: #fff;
 }
-/* Effect 4b */
 
- .CircleImg.effect.AnimationSpin:hover {
-    -webkit-transition: box-shadow 0.2s;
-    -moz-transition: box-shadow 0.2s;
-    transition: box-shadow 0.2s;
-}
-.CircleImg.effect.AnimationSpin:hover:after {
+.card .CircleImg:hover:after {
     -webkit-animation: spinAround 9s linear infinite;
     -moz-animation: spinAround 9s linear infinite;
     animation: spinAround 9s linear infinite;
 }
+
 @-webkit-keyframes spinAround {
     from {
         -webkit-transform: rotate(0deg)
     }
     to {
         -webkit-transform: rotate(360deg);
-    }
-}
-@-moz-keyframes spinAround {
-    from {
-        -moz-transform: rotate(0deg)
-    }
-    to {
-        -moz-transform: rotate(360deg);
-    }
-}
-@keyframes spinAround {
-    from {
-        transform: rotate(0deg)
-    }
-    to {
-        transform: rotate(360deg);
     }
 }
 

@@ -26,6 +26,9 @@ function createCards(data){
 
     console.log(data);
 
+const principal = document.createElement('div')
+principal.classList.add('principal')
+
 const card = document.createElement('div')
 card.classList.add('card')
 
@@ -44,7 +47,9 @@ imagePokemon.classList.add('img')
 const namePokemon = document.createElement('h1')
 namePokemon.textContent = data.name
 
-containerCards.appendChild(card)
+containerCards.appendChild(principal)
+
+principal.appendChild(card)
 
 card.appendChild(namePokemon)
 card.appendChild(containerImg)
