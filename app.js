@@ -24,7 +24,7 @@ function consumirPokemon(element){
 
 function createCards(data){
 
-    console.log(data);
+console.log(data);
 
 const principal = document.createElement('div')
 principal.classList.add('principal')
@@ -35,10 +35,9 @@ card.classList.add('card')
 const containerImg = document.createElement('div')
 containerImg.classList.add('block')
 
-const containerImg2 = document.createElement('div')
-containerImg2.classList.add('CircleImg')
-containerImg2.classList.add('effect')
-containerImg2.classList.add('AnimationSpin')
+const CircleContainer = document.createElement('div')
+CircleContainer.classList.add('CircleImg')
+CircleContainer.classList.add('effect')
 
 const imagePokemon =document.createElement('img')
 imagePokemon.setAttribute('src',data.sprites.front_default)
@@ -47,14 +46,22 @@ imagePokemon.classList.add('img')
 const namePokemon = document.createElement('h1')
 namePokemon.textContent = data.name
 
-containerCards.appendChild(principal)
+const idPokemon = document.createElement('h3')
+idPokemon.textContent = "N° "+data.id
 
-principal.appendChild(card)
+const features = document.createElement('div')
+features.classList.add('features')
+
+containerCards.appendChild(card)
 
 card.appendChild(namePokemon)
 card.appendChild(containerImg)
-containerImg.appendChild(containerImg2)
-containerImg2.appendChild(imagePokemon)
+card.appendChild(idPokemon)
+
+containerImg.appendChild(CircleContainer)
+CircleContainer.appendChild(imagePokemon)
+
+card.appendChild(features)
 
 }
 

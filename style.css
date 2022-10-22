@@ -28,59 +28,65 @@ main{
 }
 
 .containerCards{
-    width: 90%;
-    height: 90%;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background: yellow;
-}
-
-.principal{
-    width: 20%;
-    height: 20rem;
-    background: greenyellow;
-    margin: 1.2rem;
+    background: white;
 }
 
 .card{
-    width: 100%;
-    height: 50%;
+    width: 17rem;
+    height: 14rem;
+    margin: 1.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background: blue;
     cursor: pointer;
-    
+    transition: 0.5s all ease-in-out;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
-.principal:hover{
+.card:hover{
     -webkit-transform:scale(1.2);transform:scale(1.2);
+    overflow: hidden;
+    transition: 1000ms all ease;
+    border-radius: 20px;
+    transition: 0.5s all ease-in-out;
+    height: 28rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.card:hover .img{
+    -webkit-transform:scale(1.25);transform:scale(1.25);
     overflow: hidden;
     transition: 1000ms all ease;
 }
 
-.principal:hover .img{
-    -webkit-transform:scale(1.2);transform:scale(1.2);
-    overflow: hidden;
-    transition: 1000ms all ease;
-}
-
-.down{
-    width: 100%;
-    height: 50%;
-    background: red;
-    position: absolute;
+.features{
+    background: green;
     display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5ms all ease-in-out;
+    transition-delay: 500ms;
 }
 
-.principal:hover .down{
-    display: block;
+.card:hover .features{
+    display: flex;
+    transition: 0.5ms all ease-in-out;
+    transition-delay: 500ms;
+    width: 85%;
+    height: 40%;
 }
-
 
 .containerImg{
     width: 50%;
@@ -101,16 +107,12 @@ main{
 
 .CircleImg {
     display: inline-block;
-    font-size: 45px;
-    line-height: 90px;
     cursor: pointer;
     margin: 20px;
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    text-align: center;
     position: relative;
-    text-decoration: none;
     z-index: 1;
     color: #fff;
 }
@@ -157,7 +159,7 @@ main{
     color: #fff;
 }
 
-.card .CircleImg:hover:after {
+.card:hover .CircleImg.effect:after {
     -webkit-animation: spinAround 9s linear infinite;
     -moz-animation: spinAround 9s linear infinite;
     animation: spinAround 9s linear infinite;
