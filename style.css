@@ -13,10 +13,36 @@ border-radius: 20px;
 background: gray;
 }
 
+header{
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: blue;
+}
+
+#containerPoke{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: red;
+}
+
+.infoPokemon{
+    width: 30%;
+    height: 30%;
+    background: green;
+}
+
 body{
     width: 100vw;
     height: 100vh;
-    background: transparent;
+    background: #04001e;
     overflow-x: hidden;
 }
 
@@ -25,10 +51,14 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #04001e;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 .containerCards{
-    padding: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -36,39 +66,78 @@ main{
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background: white;
+    background: transparent;
 }
 
 .card{
     width: 17rem;
-    height: 14rem;
+    height: 20rem;
     margin: 1.5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    background: blue;
+    background: #ff3036;
     cursor: pointer;
     transition: 0.5s all ease-in-out;
     border-radius: 10px;
     border: 1px solid black;
+    color: white;
+}
+
+.rotomDex{
+    width: 100%;
+    height: 30%;
+    background:url(./img/Rotomdex.jpg);
+    background-size: 100% 100%;
+    border-radius: 20px;
+}
+
+.firstView{
+    width: 85%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: transparent;
+}
+
+.card:hover .firstView{
+    width: 85%;
+    height: 35%;
+    transition: 0.5s all ease-in-out;
+}
+
+.card:hover .rotomDex{
+    height: 22%;
 }
 
 .card:hover{
     -webkit-transform:scale(1.2);transform:scale(1.2);
     overflow: hidden;
-    transition: 1000ms all ease;
     border-radius: 20px;
     transition: 0.5s all ease-in-out;
-    height: 28rem;
+    height: 30rem;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .card:hover .img{
     -webkit-transform:scale(1.25);transform:scale(1.25);
     overflow: hidden;
-    transition: 1000ms all ease;
+    transition: 1s all ease-in-out;
+    transition-delay: 0.2s;
 }
+
+.img{
+    width: 80%;
+    height: 80%;
+    transition: 0.5s all ease-in-out;
+    transition-delay: 0.2s;
+}
+
 
 .features{
     background: green;
@@ -85,93 +154,41 @@ main{
     transition: 0.5ms all ease-in-out;
     transition-delay: 500ms;
     width: 85%;
-    height: 40%;
+    height: 35%;
 }
 
 .containerImg{
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 60%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: white;
-    border-radius: 100%;
+    background: url(./img/fondoPokemon.jpg);
+    background-size: 100% 100%;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: 0.5ms all ease-in-out;
+    transition-delay: 500ms;
+    margin: 0.5rem;
 }
 
-.img{
-    width: 100%;
-    height: 100%;
+/* animacion */
+
+.card:hover .containerImg{
+    outline: 6px dashed #E0E4CC;
+    box-shadow: 0 0 0 6px #0085d2;
+    animation: 0.5s animation ease infinite;
+    margin: 1rem;
+    transition: 0.5s all ease-in-out;
 }
 
-/* animacion img */
-
-.CircleImg {
-    display: inline-block;
-    cursor: pointer;
-    margin: 20px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-}
-
-.CircleImg:after {
-    pointer-events: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    content:'';
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-}
-
-.CircleImg:before {
-    font-size: 48px;
-    line-height: 90px;
-    display: block;
-    -webkit-font-smoothing: antialiased;
-}
-
-.CircleImg.effect {
-    width: 92px;
-    height: 92px;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
-}
-
-.CircleImg.effect:before {
-    line-height: 92px;
-}
-
-.CircleImg.effect:after {
-    top: -4px;
-    left: -4px;
-    padding: 0;
-    z-index: 10;
-    border: 4px dashed #fff;
-}
-
-.CircleImg.effect:hover {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    color: #fff;
-}
-
-.card:hover .CircleImg.effect:after {
-    -webkit-animation: spinAround 9s linear infinite;
-    -moz-animation: spinAround 9s linear infinite;
-    animation: spinAround 9s linear infinite;
-}
-
-@-webkit-keyframes spinAround {
-    from {
-        -webkit-transform: rotate(0deg)
-    }
+@keyframes animation {
     to {
-        -webkit-transform: rotate(360deg);
+        outline-color: #0085d2;
+        box-shadow: 0 0 0 6px #E0E4CC;
     }
 }
 
-/* Fin animacion img */
+/* fin de animacion */
+
+
