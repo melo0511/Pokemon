@@ -13,32 +13,6 @@ border-radius: 20px;
 background: gray;
 }
 
-header{
-    width: 100%;
-    height: 30rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: blue;
-}
-
-#containerPoke{
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    background: red;
-}
-
-.infoPokemon{
-    width: 30%;
-    height: 30%;
-    background: green;
-}
-
 body{
     width: 100vw;
     height: 100vh;
@@ -55,6 +29,167 @@ main{
     background-size: 100% 100%;
     background-attachment: fixed;
 }
+
+/* pokedex */
+
+header{
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: blue;
+}
+
+#containerPoke{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background: transparent;
+}
+
+.containerImgPoke{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url(./img/fondoPokemon.jpg);
+    background-size: 100% 100%;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: 0.5ms all ease-in-out;
+    transition-delay: 500ms;
+}
+
+/* mainLeft */
+
+#mainLeft{
+    width: 40%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ff3036;
+    border: 1px solid black;
+}
+/* top */
+
+#top{
+    width: 100%;
+    height: 25%;
+    background: yellow;
+}
+
+/* mid */
+
+#mid{
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #d7d7d7;
+    border-radius: 20px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#mid-top{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    gap: 2rem;
+}
+
+#Circle1{
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 100%;
+}
+
+#Circle2{
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 100%;
+}
+
+#mid-main{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+}
+
+#mid-bottom{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    gap: 1rem;
+}
+
+/* bottom */
+
+#bottom{
+    width: 100%;
+    height: 25%;
+    background: yellow;
+}
+
+#union{
+    width: 2%;
+    height: 70%;
+    background: #ff3036;
+    border: 1px solid black;
+}
+
+#pokeinfo{
+    width: 40%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff3036;
+    border: 1px solid black;
+}
+
+.infoPokemon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 60%;
+    background: white;
+}
+
+.infoPokemon p{
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    text-align: center;
+    color: black;
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Silkscreen', cursive;
+}
+
+/* Cards container */
 
 .containerCards{
     margin-top: 3rem;
@@ -74,7 +209,7 @@ main{
     height: 20rem;
     margin: 1.5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background: #ff3036;
@@ -83,6 +218,7 @@ main{
     border-radius: 10px;
     border: 1px solid black;
     color: white;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .rotomDex{
@@ -118,7 +254,7 @@ main{
     overflow: hidden;
     border-radius: 20px;
     transition: 0.5s all ease-in-out;
-    height: 30rem;
+    height: 32rem;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -140,13 +276,23 @@ main{
 
 
 .features{
-    background: green;
+    background: transparent;
+    /* border: 3px dotted white; */
+    border-radius: 5px;
     display: none;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     transition: 0.5ms all ease-in-out;
     transition-delay: 500ms;
+}
+
+.features p{
+    width: 50%;
+    height: 100%;
+    background: transparent;
+    text-align: center;
+    color: white;
 }
 
 .card:hover .features{
@@ -171,6 +317,17 @@ main{
     transition-delay: 500ms;
     margin: 0.5rem;
 }
+
+.divStat{
+    width: 100%;
+    height: 12%;
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 
 /* animacion */
 
