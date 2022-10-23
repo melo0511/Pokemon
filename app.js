@@ -128,30 +128,46 @@ function createCards(data){
 // Pokedex Buscador
 
 const search = document.getElementById('search')
+const show = document.getElementById('show')
+const Containerinfo = document.getElementById('Containerinfo')
 
 search.addEventListener('keyup',searchPokemon)
 
 let error = "No se encontró el Pokemon"
 
-function searchPokemon(event){
 
-    if(event.code === 'Enter'){
+
+function searchPokemon(){
+
+    const searching = document.createElement('h3')
+    const searchingInfo = document.createElement('h3')
+
+    if(search.value===""){
+        show.innerHTML = ""
+        Containerinfo.innerHTML = ""
+    }else{
+        show.innerHTML = ""
+        Containerinfo.innerHTML = ""
+
+        show.appendChild(searching)
+        searching.textContent = "Searching..."
+        Containerinfo.appendChild(searchingInfo)
+        searchingInfo.textContent = "..."
+    }
+
         fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
         .then(response=>response.json())
         .then(data=>{
         console.log(data);
         Pokedex(data)
-    }).catch(err=>err+alert(error))
-    }
+    })
+    
 }
-
-const midMain = document.getElementById('mid-main')
-const pokeinfo = document.getElementById('pokeinfo')
 
 function Pokedex(data){
 
-    midMain.innerHTML = ''
-    pokeinfo.innerHTML = ''
+    show.innerHTML = ''
+    Containerinfo.innerHTML = ''
 
     const Containerpokemon = document.createElement('div')
     Containerpokemon.classList.add('containerImgPoke')
@@ -199,10 +215,10 @@ function Pokedex(data){
     defense2.textContent = data.stats[2].base_stat
         
 
-    midMain.appendChild(Containerpokemon) //imagen
+    show.appendChild(Containerpokemon) //imagen
     Containerpokemon.appendChild(pokemon)
 
-    pokeinfo.appendChild(infoPokemon) //info
+    Containerinfo.appendChild(infoPokemon) //info
 
     infoPokemon.appendChild(typePokemon)
     typePokemon.appendChild(typeP)

@@ -34,7 +34,7 @@ main{
 
 header{
     width: 100%;
-    height: 40rem;
+    height: 45rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,8 +43,8 @@ header{
 }
 
 #containerPoke{
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,13 +70,16 @@ header{
 
 #mainLeft{
     width: 40%;
-    height: 90%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #ff3036;
+    background: #d5092b;
     border: 1px solid black;
+    -webkit-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
 }
 /* top */
 
@@ -96,8 +99,8 @@ header{
     align-items: center;
     flex-direction: column;
     background: #d7d7d7;
-    border-radius: 20px;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 #mid-top{
@@ -110,14 +113,14 @@ header{
     gap: 2rem;
 }
 
-#Circle1{
+#mid-top-Circle1{
     width: 10px;
     height: 10px;
     background: red;
     border-radius: 100%;
 }
 
-#Circle2{
+#mid-top-Circle2{
     width: 10px;
     height: 10px;
     background: black;
@@ -130,17 +133,79 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: green;
+    background: transparent;
 }
 
-#mid-bottom{
-    width: 100%;
-    height: 25%;
+#show{
+    width: 70%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Silkscreen', cursive;
+}
+
+#mid-bottom{
+    width: 70%;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: transparent;
-    gap: 1rem;
+}
+
+#mid-bottom-Circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background: red;
+}
+
+#mid-bottom-Bars{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+}
+
+.bars{
+    width: 100%;
+    height: 20%;
+    background: gray;
+    border-radius: 20px;
+}
+
+/* centro */
+
+#union{
+    border-radius: 3px;
+    width: 1.2%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: #d5092b;
+    border: 1px solid black;
+    position: relative;
+    -webkit-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
+}
+
+#decoration{
+    width: 100%;
+    height: 2%;
+    border: 1px solid black;
 }
 
 /* bottom */
@@ -151,31 +216,38 @@ header{
     background: yellow;
 }
 
-#union{
-    width: 2%;
-    height: 70%;
-    background: #ff3036;
-    border: 1px solid black;
-}
-
 #pokeinfo{
-    width: 40%;
-    height: 90%;
+    width: 35%;
+    height: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ff3036;
+    background: #d5092b;
     border: 1px solid black;
+    -webkit-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+}
+
+#Containerinfo{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 2px solid rgb(44, 44, 44);
 }
 
 .infoPokemon{
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 80%;
-    height: 60%;
     background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .infoPokemon p{
