@@ -30,7 +30,7 @@ function consumirPokemon(element){
 
 function createCards(data){
 
-    console.log(data);
+    // console.log(data);
 
     const card= document.createElement('div')
     card.classList.add('card')
@@ -158,7 +158,7 @@ function searchPokemon(){
         fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
         .then(response=>response.json())
         .then(data=>{
-        console.log(data);
+        // console.log(data);
         Pokedex(data)
     })
     

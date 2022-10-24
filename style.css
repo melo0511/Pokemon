@@ -34,7 +34,7 @@ main{
 
 header{
     width: 100%;
-    height: 45rem;
+    height: 40rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,24 +69,105 @@ header{
 /* mainLeft */
 
 #mainLeft{
-    width: 40%;
+    width: 32rem;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background: #d5092b;
-    border: 1px solid black;
-    -webkit-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
-    box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    border: 2px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
 }
 /* top */
 
 #top{
+    margin-top: 1rem;
     width: 100%;
-    height: 25%;
+    height: 13%;
+    background: url(./img/Linea.png);
+    background-size: 100% 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#container-top{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: left;
+    align-items: top;
+    border-radius: 20px;
+}
+
+#container-lights{
+    width: 35%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+    background: transparent;
+    margin-left: 2rem;
+}
+
+#big-light{
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d8b9b9;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+#light-blue{
+    width: 85%;
+    height: 85%;
+    background: #249ce6;
+    shape-outside: circle();
+    clip-path: circle();
+}
+
+#three-lights{
+    width: 35%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: transparent;
+}
+
+#lightLeft{
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    border: 2.5px solid #881325;
+}
+
+#lightMid{
+    width: 10px;
+    height: 10px;
     background: yellow;
+    border-radius: 50%;
+    border: 2.5px solid #937923;
+}
+
+#lightRight{
+    width: 10px;
+    height: 10px;
+    background: #559463;
+    border-radius: 50%;
+    border: 2.5px solid #2a6433;
 }
 
 /* mid */
@@ -100,7 +181,9 @@ header{
     flex-direction: column;
     background: #d7d7d7;
     border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    -webkit-box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
 }
 
 #mid-top{
@@ -151,6 +234,15 @@ header{
     font-family: 'Silkscreen', cursive;
 }
 
+/* bottom */
+
+#bottom{
+    width: 100%;
+    height: 25%;
+    background: yellow;
+    border-radius: 10px;
+}
+
 #mid-bottom{
     width: 70%;
     height: 25%;
@@ -188,15 +280,15 @@ header{
 
 #union{
     border-radius: 3px;
-    width: 1.2%;
+    width: 1rem;
     height: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     background: #d5092b;
-    border: 1px solid black;
-    position: relative;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
     -webkit-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
     box-shadow: 7px 7px 5px -3px rgba(0,0,0,0.75);
@@ -208,25 +300,18 @@ header{
     border: 1px solid black;
 }
 
-/* bottom */
-
-#bottom{
-    width: 100%;
-    height: 25%;
-    background: yellow;
-}
-
 #pokeinfo{
-    width: 35%;
+    width: 26rem;
     height: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #d5092b;
-    border: 1px solid black;
-    -webkit-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
-    box-shadow: 24px 14px 5px -3px rgba(0,0,0,0.75);
+    border: 2px solid black;
+    border-radius: 10px;
+    -webkit-box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
+    box-shadow: 14px 10px 13px -4px rgba(0,0,0,0.75);
 }
 
 #Containerinfo{
