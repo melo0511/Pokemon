@@ -135,8 +135,6 @@ search.addEventListener('keyup',searchPokemon)
 
 let error = "No se encontró el Pokemon"
 
-
-
 function searchPokemon(){
 
     const searching = document.createElement('h3')
@@ -154,14 +152,12 @@ function searchPokemon(){
         Containerinfo.appendChild(searchingInfo)
         searchingInfo.textContent = "..."
     }
-
         fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
         .then(response=>response.json())
         .then(data=>{
         // console.log(data);
         Pokedex(data)
     })
-    
 }
 
 function Pokedex(data){
@@ -175,6 +171,20 @@ function Pokedex(data){
     const pokemon = document.createElement('img')
     pokemon.setAttribute('src',data.sprites.front_default)
     pokemon.classList.add('imgPoke')
+
+    const PNameId = document.createElement('div')
+    PNameId.classList.add('containerP')
+
+    const containerNameId = document.createElement('div')
+    containerNameId.classList.add('containerNameId')
+
+    const PokedexName = document.createElement('h3')
+    PokedexName.classList.add('text')
+    PokedexName.textContent = data.name
+
+    const idPokemon = document.createElement('h3')
+    idPokemon.classList.add('text')
+    idPokemon.textContent = data.id
 
     const infoPokemon = document.createElement('div')
     infoPokemon.classList.add('infoPokemon')
@@ -214,9 +224,13 @@ function Pokedex(data){
     const defense2 = document.createElement('p')
     defense2.textContent = data.stats[2].base_stat
         
-
     show.appendChild(Containerpokemon) //imagen
     Containerpokemon.appendChild(pokemon)
+
+    Containerpokemon.appendChild(PNameId)
+    PNameId.appendChild(containerNameId)
+    containerNameId.appendChild(PokedexName)
+    containerNameId.appendChild(idPokemon)
 
     Containerinfo.appendChild(infoPokemon) //info
 
