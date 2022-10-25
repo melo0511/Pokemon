@@ -69,7 +69,7 @@ function createCards(data){
     const hability = document.createElement('p')
     hability.textContent = "Hability: "
     const hability2 = document.createElement('p')
-    hability2.textContent = data.abilities[1].ability.name
+    hability2.textContent = data.abilities[0].ability.name
 
     const statPokemon2 = document.createElement('div')
     statPokemon2.classList.add('divStat')
@@ -131,19 +131,54 @@ const search = document.getElementById('search')
 const show = document.getElementById('show')
 const Containerinfo = document.getElementById('Containerinfo')
 
+const searching = document.createElement('h3')
+const searchingInfo = document.createElement('h3')
+
+window.addEventListener('DOMContentLoaded',()=>{
+
+    setTimeout(()=>{
+
+        let temporizador = setInterval(() => {
+            show.appendChild(searching)
+            searching.textContent = "Initiating Pokedex..."
+        }, 1000);
+    
+        setInterval(() => {
+            searching.textContent = " "
+        }, 2000);
+    
+        setTimeout(() => {
+            
+            clearInterval(temporizador)
+            Containerinfo.appendChild(searchingInfo)
+            searchingInfo.textContent = "¡WELCOME!"
+
+            setTimeout(() => {
+                const presentation = document.createElement('img')
+                const containerImgPresentation = document.createElement('div')
+                containerImgPresentation.classList.add('containerImgPresentation')
+                
+                containerImgPresentation.appendChild(presentation)
+                show.appendChild(containerImgPresentation)
+
+            }, 1000);
+
+        }, 6000);
+
+    },1000)
+})
+
 search.addEventListener('keyup',searchPokemon)
 
 let error = "No se encontró el Pokemon"
 
 function searchPokemon(){
 
-    const searching = document.createElement('h3')
-    const searchingInfo = document.createElement('h3')
-
     if(search.value===""){
         show.innerHTML = ""
         Containerinfo.innerHTML = ""
     }else{
+
         show.innerHTML = ""
         Containerinfo.innerHTML = ""
 
@@ -151,6 +186,12 @@ function searchPokemon(){
         searching.textContent = "Searching..."
         Containerinfo.appendChild(searchingInfo)
         searchingInfo.textContent = "..."
+
+        // setInterval(() => {
+        //     if(searching.textContent === "Searching..."){
+        //         searching.textContent = "Pokemon not found"
+        //     }
+        // }, 3000);
     }
         fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
         .then(response=>response.json())
@@ -162,8 +203,8 @@ function searchPokemon(){
 
 function Pokedex(data){
 
-    show.innerHTML = ''
-    Containerinfo.innerHTML = ''
+    show.innerHTML = ""
+    Containerinfo.innerHTML = ""
 
     const Containerpokemon = document.createElement('div')
     Containerpokemon.classList.add('containerImgPoke')
@@ -172,11 +213,14 @@ function Pokedex(data){
     pokemon.setAttribute('src',data.sprites.front_default)
     pokemon.classList.add('imgPoke')
 
-    const PNameId = document.createElement('div')
-    PNameId.classList.add('containerP')
+    const containerP = document.createElement('div')
+    containerP.classList.add('containerP')
 
-    const containerNameId = document.createElement('div')
-    containerNameId.classList.add('containerNameId')
+    const containerName = document.createElement('div')
+    containerName.classList.add('containerName')
+
+    const containerId = document.createElement('div')
+    containerId.classList.add('containerId')
 
     const PokedexName = document.createElement('h3')
     PokedexName.classList.add('text')
@@ -201,7 +245,7 @@ function Pokedex(data){
     const hability = document.createElement('p')
     hability.textContent = "Hability: "
     const hability2 = document.createElement('p')
-    hability2.textContent = data.abilities[1].ability.name
+    hability2.textContent = data.abilities[0].ability.name
 
     const statPokemon2 = document.createElement('div')
     statPokemon2.classList.add('divStat')
@@ -225,12 +269,13 @@ function Pokedex(data){
     defense2.textContent = data.stats[2].base_stat
         
     show.appendChild(Containerpokemon) //imagen
-    Containerpokemon.appendChild(pokemon)
 
-    Containerpokemon.appendChild(PNameId)
-    PNameId.appendChild(containerNameId)
-    containerNameId.appendChild(PokedexName)
-    containerNameId.appendChild(idPokemon)
+    Containerpokemon.appendChild(containerP)
+    containerP.appendChild(containerName)
+    containerP.appendChild(pokemon)
+    containerP.appendChild(containerId)
+    containerName.appendChild(PokedexName)
+    containerId.appendChild(idPokemon)
 
     Containerinfo.appendChild(infoPokemon) //info
 
