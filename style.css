@@ -60,8 +60,6 @@ header{
     background-size: 100% 100%;
     border: 2px solid white;
     border-radius: 5px;
-    transition: 0.5ms all ease-in-out;
-    transition-delay: 500ms;
 }
 
 .imgPoke{
@@ -70,7 +68,7 @@ header{
 }
 
 .containerImgPresentation{
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     background: url(./img/fondoPresentacion-removebg-preview.png);

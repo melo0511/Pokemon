@@ -125,7 +125,9 @@ function createCards(data){
 
 }
 
-// Pokedex Buscador
+// Pokedex
+
+//Animacion al cargar la ventana
 
 const search = document.getElementById('search')
 const show = document.getElementById('show')
@@ -143,17 +145,20 @@ window.addEventListener('DOMContentLoaded',()=>{
             searching.textContent = "Initiating Pokedex..."
         }, 1000);
     
-        setInterval(() => {
+        let temporizadorVacio = setInterval(() => {
             searching.textContent = " "
         }, 2000);
     
         setTimeout(() => {
-            
+
             clearInterval(temporizador)
+            clearInterval(temporizadorVacio)
+
             Containerinfo.appendChild(searchingInfo)
             searchingInfo.textContent = "¡WELCOME!"
 
             setTimeout(() => {
+                
                 const presentation = document.createElement('img')
                 const containerImgPresentation = document.createElement('div')
                 containerImgPresentation.classList.add('containerImgPresentation')
@@ -161,16 +166,21 @@ window.addEventListener('DOMContentLoaded',()=>{
                 containerImgPresentation.appendChild(presentation)
                 show.appendChild(containerImgPresentation)
 
+                console.log("Habilitado");
+                search.disabled = false
+
             }, 1000);
 
         }, 6000);
-
+        
     },1000)
 })
 
-search.addEventListener('keyup',searchPokemon)
+//Fin animacion al cargar la ventana
 
-let error = "No se encontró el Pokemon"
+//Buscador
+
+search.addEventListener('keyup',searchPokemon)
 
 function searchPokemon(){
 
@@ -200,6 +210,8 @@ function searchPokemon(){
         Pokedex(data)
     })
 }
+
+//Pintar Card
 
 function Pokedex(data){
 
