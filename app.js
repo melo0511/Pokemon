@@ -211,6 +211,8 @@ function searchPokemon(){
 
 //Pintar Card
 
+const pokemon = document.createElement('img')
+
 function Pokedex(data){
 
     show.innerHTML = ""
@@ -219,7 +221,6 @@ function Pokedex(data){
     const Containerpokemon = document.createElement('div')
     Containerpokemon.classList.add('containerImgPoke')
 
-    const pokemon = document.createElement('img')
     pokemon.setAttribute('src',data.sprites.front_default)
     pokemon.classList.add('imgPoke')
 
@@ -308,6 +309,68 @@ function Pokedex(data){
     infoPokemon.appendChild(statPokemon4)
     statPokemon4.appendChild(defense)
     statPokemon4.appendChild(defense2)
+
+    //Voltear pokemon
+
+    let position = 0
+
+    function front(){
+        pokemon.setAttribute('src',"")
+            pokemon.setAttribute('src',data.sprites.back_default)
+            pokemon.classList.add('imgPoke')
+            Containerpokemon.appendChild(containerP)
+            containerP.appendChild(containerName)
+            containerP.appendChild(pokemon)
+            containerP.appendChild(containerId)
+    }
+
+    function back(){
+        pokemon.setAttribute('src',"")
+            pokemon.setAttribute('src',data.sprites.front_default)
+            pokemon.classList.add('imgPoke')
+            Containerpokemon.appendChild(containerP)
+            containerP.appendChild(containerName)
+            containerP.appendChild(pokemon)
+            containerP.appendChild(containerId)
+    }
+
+    flechaDerecha.addEventListener('click',()=>{
+
+        position++
+
+        if(position>1){
+            position=0
+        }
+
+        // console.log(position);
+
+        if(position===0){
+            back()
+        }
+        if(position===1){
+            front()
+        }
+
+    })
+
+    flechaIzquierda.addEventListener('click',()=>{
+        
+        position++
+
+        if(position>1){
+            position=0
+        }
+
+        // console.log(position);
+
+        if(position===0){
+            back()
+        }
+        if(position===1){
+            front()
+        }
+
+    })
 }
 
 const flechaArriba = document.getElementById('flechaArriba')
@@ -315,27 +378,18 @@ const flechaIzquierda = document.getElementById('flechaIzquierda')
 const flechaDerecha = document.getElementById('flechaDerecha')
 const flechaAbajo = document.getElementById('flechaAbajo')
 
-flechaArriba.addEventListener('click',fArriba)
+// function fArriba() {
+//     console.log("Arriba");
+// }
 
-function fArriba() {
-    console.log("Arriba");
-}
+// flechaAbajo.addEventListener('click',fAbajo)
 
-flechaAbajo.addEventListener('click',fAbajo)
+// function fAbajo(){
+//     console.log("Abajo");
+// }
 
-function fAbajo(){
-    console.log("Abajo");
-}
+// flechaIzquierda.addEventListener('click',fIzquierda)
 
-flechaIzquierda.addEventListener('click',fIzquierda)
-
-function fIzquierda(){
-    console.log("Izquierda");
-}
-
-flechaDerecha.addEventListener('click',fDerecha)
-
-function fDerecha(){
-    console.log("Derecha");
-}
-
+// function fIzquierda(){
+//     console.log("Izquierda");
+// }
