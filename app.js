@@ -166,8 +166,8 @@ window.addEventListener('DOMContentLoaded',()=>{
                 containerImgPresentation.appendChild(presentation)
                 show.appendChild(containerImgPresentation)
 
-                console.log("Habilitado");
                 search.disabled = false
+                // console.log("Habilitado");
 
             }, 1000);
 
@@ -184,6 +184,9 @@ search.addEventListener('keyup',searchPokemon)
 
 function searchPokemon(){
 
+    let searchLowerCase = search.value.toLowerCase()
+    // console.log(searchLowerCase);
+
     if(search.value===""){
         show.innerHTML = ""
         Containerinfo.innerHTML = ""
@@ -197,13 +200,8 @@ function searchPokemon(){
         Containerinfo.appendChild(searchingInfo)
         searchingInfo.textContent = "..."
 
-        // setInterval(() => {
-        //     if(searching.textContent === "Searching..."){
-        //         searching.textContent = "Pokemon not found"
-        //     }
-        // }, 3000);
     }
-        fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${searchLowerCase}/`)
         .then(response=>response.json())
         .then(data=>{
         // console.log(data);
@@ -310,5 +308,34 @@ function Pokedex(data){
     infoPokemon.appendChild(statPokemon4)
     statPokemon4.appendChild(defense)
     statPokemon4.appendChild(defense2)
+}
+
+const flechaArriba = document.getElementById('flechaArriba')
+const flechaIzquierda = document.getElementById('flechaIzquierda')
+const flechaDerecha = document.getElementById('flechaDerecha')
+const flechaAbajo = document.getElementById('flechaAbajo')
+
+flechaArriba.addEventListener('click',fArriba)
+
+function fArriba() {
+    console.log("Arriba");
+}
+
+flechaAbajo.addEventListener('click',fAbajo)
+
+function fAbajo(){
+    console.log("Abajo");
+}
+
+flechaIzquierda.addEventListener('click',fIzquierda)
+
+function fIzquierda(){
+    console.log("Izquierda");
+}
+
+flechaDerecha.addEventListener('click',fDerecha)
+
+function fDerecha(){
+    console.log("Derecha");
 }
 

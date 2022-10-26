@@ -3,14 +3,14 @@
 }
 
 *::-webkit-scrollbar{
-    width: 10px;
+    width: 5px;
     background: transparent;
 }
 
 *::-webkit-scrollbar-thumb{
 width: 100%;
 border-radius: 20px;
-background: gray;
+background: white;
 }
 
 body{
@@ -39,7 +39,7 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: blue;
+    background: transparent;
 }
 
 #containerPoke{
@@ -230,9 +230,9 @@ header{
     flex-direction: column;
     background: #d7d7d7;
     border-radius: 10px;
-    -webkit-box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 75px -39px rgba(0,0,0,0.75);
+    -webkit-box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
+    box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
 }
 
 #mid-top{
@@ -274,6 +274,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background: black;
     border: 3px solid white;
     border-radius: 5px;
@@ -281,18 +282,6 @@ header{
     font-family: 'Alfa Slab One', cursive;
     font-family: 'Gemunu Libre', sans-serif;
     font-family: 'Silkscreen', cursive;
-}
-
-/* bottom */
-
-#bottom{
-    width: 100%;
-    height: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: yellow;
-    border-radius: 10px;
 }
 
 #mid-bottom{
@@ -326,6 +315,124 @@ header{
     height: 20%;
     background: gray;
     border-radius: 20px;
+}
+
+/* bottom */
+
+#bottom{
+    width: 80%;
+    height: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
+    border-radius: 10px;
+}
+
+#search{
+    width: 50%;
+    height: 25%;
+    font-size: 15px;
+    font-family: 'Alfa Slab One', cursive;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Silkscreen', cursive;
+    outline: none;
+    background: #47ab57;
+    border: none;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
+    box-shadow: inset 2px 2px 12px -1px rgba(0,0,0,0.75);
+}
+
+#cruceta{
+    width: 30%;
+    height: 70%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.divCruceta{
+    width: 33.33%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.botonCruceta{
+    position: relative;
+    width: 33.33%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #342d2d;
+    cursor: pointer;
+}
+
+.botonCruceta:active{
+    box-shadow: none;
+}
+
+.btnCentral{
+    background: #342d2d;
+    box-shadow: none;
+}
+
+#circuloCentral{
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background: #000000;
+    border: 3px solid #191616;
+}
+
+/* flechas */
+
+#flechaArriba{
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#flechaIzquierda{
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#flechaDerecha{
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#flechaAbajo{
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#flechaArriba:active{
+    width: 30%;
+}
+
+#flechaIzquierda:active{
+    height: 30%;
+}
+
+#flechaDerecha:active{
+    height: 30%;
+}
+
+#flechaAbajo:active{
+    width: 30%;
 }
 
 /* centro */
@@ -559,5 +666,3 @@ header{
 }
 
 /* fin de animacion */
-
-
