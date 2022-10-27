@@ -167,6 +167,10 @@ window.addEventListener('DOMContentLoaded',()=>{
                 show.appendChild(containerImgPresentation)
 
                 search.disabled = false
+                flechaArriba.disabled = false
+                flechaAbajo.disabled = false
+                flechaIzquierda.disabled = false
+                flechaDerecha.disabled = false
                 // console.log("Habilitado");
 
             }, 1000);
@@ -184,7 +188,6 @@ search.addEventListener('keyup',searchPokemon)
 
 function searchPokemon(){
 
-    let searchLowerCase = search.value.toLowerCase()
     // console.log(searchLowerCase);
 
     if(search.value===""){
@@ -199,15 +202,49 @@ function searchPokemon(){
         searching.textContent = "Searching..."
         Containerinfo.appendChild(searchingInfo)
         searchingInfo.textContent = "..."
-
     }
-        fetch(`https://pokeapi.co/api/v2/pokemon/${searchLowerCase}/`)
+
+    fetchNormal()
+
+}
+
+//Cambiar Pokemon
+
+const flechaArriba = document.getElementById('flechaArriba')
+const flechaAbajo = document.getElementById('flechaAbajo')
+
+let newSearch = search.value
+
+flechaArriba.addEventListener('click',()=>{
+
+    newSearch++
+    search.value = newSearch
+    searchPokemon()
+
+})
+
+flechaAbajo.addEventListener('click',()=>{
+
+    newSearch--
+
+    if(newSearch<1){
+        newSearch++
+    }else{
+        search.value = newSearch
+        searchPokemon()
+    }
+
+})
+
+function fetchNormal(){
+    fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}/`)
         .then(response=>response.json())
         .then(data=>{
         // console.log(data);
         Pokedex(data)
     })
 }
+
 
 //Pintar Card
 
@@ -315,7 +352,7 @@ function Pokedex(data){
     let position = 0
 
     function front(){
-        pokemon.setAttribute('src',"")
+            pokemon.setAttribute('src',"")
             pokemon.setAttribute('src',data.sprites.back_default)
             pokemon.classList.add('imgPoke')
             Containerpokemon.appendChild(containerP)
@@ -325,7 +362,7 @@ function Pokedex(data){
     }
 
     function back(){
-        pokemon.setAttribute('src',"")
+            pokemon.setAttribute('src',"")
             pokemon.setAttribute('src',data.sprites.front_default)
             pokemon.classList.add('imgPoke')
             Containerpokemon.appendChild(containerP)
@@ -373,23 +410,6 @@ function Pokedex(data){
     })
 }
 
-const flechaArriba = document.getElementById('flechaArriba')
+
 const flechaIzquierda = document.getElementById('flechaIzquierda')
 const flechaDerecha = document.getElementById('flechaDerecha')
-const flechaAbajo = document.getElementById('flechaAbajo')
-
-// function fArriba() {
-//     console.log("Arriba");
-// }
-
-// flechaAbajo.addEventListener('click',fAbajo)
-
-// function fAbajo(){
-//     console.log("Abajo");
-// }
-
-// flechaIzquierda.addEventListener('click',fIzquierda)
-
-// function fIzquierda(){
-//     console.log("Izquierda");
-// }
