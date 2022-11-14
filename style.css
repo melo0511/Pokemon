@@ -666,3 +666,94 @@ header{
 }
 
 /* fin de animacion */
+
+/* media querys */
+
+@media screen and (max-width:900px){
+
+    header{
+        height: 70rem;
+    }
+    
+    #containerPoke{
+        flex-direction: column;
+        border: none;
+    }
+
+    #mainLeft{
+        height: 49.5%;
+    }
+
+    #pokeinfo{
+        width: 32rem;
+        height: 49.5%;
+    }
+
+    #union{
+        width: 50%;
+        height: 1%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        border: none;
+    }
+
+    #decoration{
+        width: 5%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        border: 1px solid black;
+    }
+
+    #container-lights{
+        width: 35%;
+        height: 100%;
+    }
+    
+    #big-light{
+        width: 40%;
+        height: 80%;
+        shape-outside: circle();
+        clip-path: circle();
+    }
+    
+}
+
+@media screen and (max-width:550px){
+    header{
+        height: 70rem;
+    }
+    
+    #containerPoke{
+        flex-direction: column;
+        border: none;
+    }
+
+    #mainLeft{
+        height: 49.5%;
+        width: 18rem;
+    }
+
+    #pokeinfo{
+        width: 18rem;
+        height: 49.5%;
+    }
+
+    #union{
+        width: 60%;
+        height: 1%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+        border: none;
+    }
+
+    #container-lights{
+        width: 48%;
+        margin-left: 0.7rem;
+    }
+}

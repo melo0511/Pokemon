@@ -245,7 +245,6 @@ function fetchNormal(){
     })
 }
 
-
 //Pintar Card
 
 const pokemon = document.createElement('img')
@@ -371,6 +370,9 @@ function Pokedex(data){
             containerP.appendChild(containerId)
     }
 
+    const flechaIzquierda = document.getElementById('flechaIzquierda')
+    const flechaDerecha = document.getElementById('flechaDerecha')
+
     flechaDerecha.addEventListener('click',()=>{
 
         position++
@@ -409,7 +411,3 @@ function Pokedex(data){
 
     })
 }
-
-
-const flechaIzquierda = document.getElementById('flechaIzquierda')
-const flechaDerecha = document.getElementById('flechaDerecha')
