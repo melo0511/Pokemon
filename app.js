@@ -5,6 +5,7 @@ const containerCards = document.querySelector('.containerCards')
 // Consumir pokemones
 
 function consumoApi(){
+    // fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898') TODOS LOS POKEMON
     fetch('https://pokeapi.co/api/v2/pokemon/')
     .then(response=>response.json())
     .then(response=>response.results.map(element=>{
@@ -166,12 +167,16 @@ window.addEventListener('DOMContentLoaded',()=>{
                 containerImgPresentation.appendChild(presentation)
                 show.appendChild(containerImgPresentation)
 
-                search.disabled = false
-                flechaArriba.disabled = false
-                flechaAbajo.disabled = false
-                flechaIzquierda.disabled = false
-                flechaDerecha.disabled = false
-                // console.log("Habilitado");
+                setTimeout(()=>{
+
+                    search.disabled = false
+                    flechaArriba.disabled = false
+                    flechaAbajo.disabled = false
+                    flechaIzquierda.disabled = false
+                    flechaDerecha.disabled = false
+                    // console.log("Habilitado");
+
+                },1000)
 
             }, 1000);
 
@@ -213,24 +218,25 @@ function searchPokemon(){
 const flechaArriba = document.getElementById('flechaArriba')
 const flechaAbajo = document.getElementById('flechaAbajo')
 
-let newSearch = search.value
-
 flechaArriba.addEventListener('click',()=>{
 
-    newSearch++
-    search.value = newSearch
-    searchPokemon()
+    search.value++
 
+    if(search.value>898){
+        search.value--
+    }else{
+        searchPokemon()
+    }
+    
 })
 
 flechaAbajo.addEventListener('click',()=>{
 
-    newSearch--
+    search.value--
 
-    if(newSearch<1){
-        newSearch++
+    if(search.value<1){
+        search.value++
     }else{
-        search.value = newSearch
         searchPokemon()
     }
 
@@ -410,4 +416,46 @@ function Pokedex(data){
         }
 
     })
+}
+
+// Lista de pokemones
+
+const capa = document.getElementById('capa')
+const lista = document.getElementById('lista')
+
+const abrirCapa = document.getElementById('abrirCapa')
+const cerrarCapa = document.getElementById('cerrarCapa')
+
+window.addEventListener('DOMContentLoaded',()=>{
+    capa.style.display = 'none'
+    consumoApiLista()
+})
+
+abrirCapa.addEventListener('click',()=>{
+    capa.style.display = 'flex'
+    abrirCapa.style.display = 'none'
+})
+
+cerrarCapa.addEventListener('click',()=>{
+    capa.style.display = 'none'
+    abrirCapa.style.display = 'flex'
+})
+
+function consumoApiLista(){
+    fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898')
+    .then(response=>response.json())
+    .then(response=>response.results.map(element=>{
+        ListaPokemones(element)
+    }))
+}
+
+function ListaPokemones(data) {
+    // const LidPokemon = document.createElement('p')
+
+    const LnombrePokemon = document.createElement('p')
+    LnombrePokemon.classList.add('object')
+    LnombrePokemon.textContent = data.name
+    
+    lista.appendChild(LnombrePokemon)
+
 }
