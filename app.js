@@ -6,7 +6,7 @@ const containerCards = document.querySelector('.containerCards')
 
 function consumoApi(){
     // fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898') TODOS LOS POKEMON
-    fetch('https://pokeapi.co/api/v2/pokemon/')
+    fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
     .then(response=>response.json())
     .then(response=>response.results.map(element=>{
         consumirPokemon(element)
@@ -426,14 +426,20 @@ const lista = document.getElementById('lista')
 const abrirCapa = document.getElementById('abrirCapa')
 const cerrarCapa = document.getElementById('cerrarCapa')
 
+let carga = false
+
 window.addEventListener('DOMContentLoaded',()=>{
     capa.style.display = 'none'
-    consumoApiLista()
 })
 
 abrirCapa.addEventListener('click',()=>{
     capa.style.display = 'flex'
     abrirCapa.style.display = 'none'
+
+    if(carga === false){
+        consumoApiLista()
+        carga = true
+    }
 })
 
 cerrarCapa.addEventListener('click',()=>{
@@ -441,21 +447,48 @@ cerrarCapa.addEventListener('click',()=>{
     abrirCapa.style.display = 'flex'
 })
 
+//Api Lista
+
 function consumoApiLista(){
     fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898')
     .then(response=>response.json())
     .then(response=>response.results.map(element=>{
-        ListaPokemones(element)
+        cadaPokemon(element)
     }))
 }
 
-function ListaPokemones(data) {
-    // const LidPokemon = document.createElement('p')
+function cadaPokemon(element){
 
-    const LnombrePokemon = document.createElement('p')
-    LnombrePokemon.classList.add('object')
-    LnombrePokemon.textContent = data.name
+    let newUrl = element.url
+
+    fetch(newUrl)
+    .then(response=>response.json())
+    .then(data=>{
+        // console.log(data);
+        ListaPokemones(data)
+    })
+}
+
+//Renderiza cada pokemon en la lista
+
+function ListaPokemones(data) {
+
+    const contPokemon = document.createElement('div')
+    contPokemon.classList.add('object')
+
+    const imgPokemon = document.createElement('img')
+    imgPokemon.setAttribute('src',data.sprites.front_default)
+    imgPokemon.classList.add('imgPoke')
+
+    const LIdPokemon = document.createElement('p')
+    LIdPokemon.textContent = data.id
+
+    const LNombrePokemon = document.createElement('p')
+    LNombrePokemon.textContent = data.name
     
-    lista.appendChild(LnombrePokemon)
+    lista.appendChild(contPokemon)
+    contPokemon.appendChild(imgPokemon)
+    contPokemon.appendChild(LIdPokemon)
+    contPokemon.appendChild(LNombrePokemon)
 
 }
