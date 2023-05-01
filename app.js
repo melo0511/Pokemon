@@ -1,12 +1,13 @@
 window.addEventListener('DOMContentLoaded',consumoApi)
 
 const containerCards = document.querySelector('.containerCards')
+const abrirCapa = document.getElementById('abrirCapa')
 
 // Consumir pokemones
 
 function consumoApi(){
     // fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=898') TODOS LOS POKEMON
-    fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
+    fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15')
     .then(response=>response.json())
     .then(response=>response.results.map(element=>{
         consumirPokemon(element)
@@ -139,24 +140,36 @@ const searchingInfo = document.createElement('h3')
 
 window.addEventListener('DOMContentLoaded',()=>{
 
+    Containerinfo.appendChild(searchingInfo)
+    abrirCapa.textContent = "Loading"
+
     setTimeout(()=>{
+
+        let puntos = setInterval(() => {
+            if(searchingInfo.textContent === "..."){
+                searchingInfo.textContent = ""
+            }else{
+                searchingInfo.textContent += "."
+            }
+        }, 350);
 
         let temporizador = setInterval(() => {
             show.appendChild(searching)
-            searching.textContent = "Initiating Pokedex..."
+            searching.textContent = "Initiating Pokedex"
         }, 1000);
     
         let temporizadorVacio = setInterval(() => {
             searching.textContent = " "
         }, 2000);
-    
+
         setTimeout(() => {
 
             clearInterval(temporizador)
             clearInterval(temporizadorVacio)
+            clearInterval(puntos)
 
-            Containerinfo.appendChild(searchingInfo)
             searchingInfo.textContent = "¡WELCOME!"
+            abrirCapa.textContent = "Lista"
 
             setTimeout(() => {
                 
@@ -174,6 +187,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                     flechaAbajo.disabled = false
                     flechaIzquierda.disabled = false
                     flechaDerecha.disabled = false
+                    abrirCapa.disabled = false
                     // console.log("Habilitado");
 
                 },1000)
@@ -199,17 +213,18 @@ function searchPokemon(){
         show.innerHTML = ""
         Containerinfo.innerHTML = ""
     }else{
-
         show.innerHTML = ""
         Containerinfo.innerHTML = ""
 
         show.appendChild(searching)
         searching.textContent = "Searching..."
         Containerinfo.appendChild(searchingInfo)
-        searchingInfo.textContent = "..."
+        searchingInfo.textContent = "..."  
     }
 
-    fetchNormal()
+    setTimeout(() => {
+        fetchNormal()
+    }, 300);
 
 }
 
@@ -423,7 +438,6 @@ function Pokedex(data){
 const capa = document.getElementById('capa')
 const lista = document.getElementById('lista')
 
-const abrirCapa = document.getElementById('abrirCapa')
 const cerrarCapa = document.getElementById('cerrarCapa')
 
 let carga = false
@@ -492,3 +506,5 @@ function ListaPokemones(data) {
     contPokemon.appendChild(LNombrePokemon)
 
 }
+
+//Animación de luces
